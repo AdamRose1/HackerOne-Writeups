@@ -27,14 +27,14 @@ On the github page we find that uwsgi contains a default file named uwsgi.ini:
  
 ![image](https://user-images.githubusercontent.com/93153300/206508151-68a88437-3d59-4906-8928-ad77373cfcfe.png)
 
-The github page shows the contents of the file uwsgi.ini.  Check if we can read this file using the sql injection.  Using burp suite, capture the request for https://8e62cd1d8cac0e9921e839ec01c74382.ctf.hacker101.com/fetch?id=1. <br>
+The github page shows the contents of the file uwsgi.ini.  Check if we can read this file using the sql injection.  Using burp suite, capture the request for https://3a3f7491bd9535647716ab87d25fc400.ctf.hacker101.com/fetch?id=1. <br>
 Change the id=1 to id=0 union select ‘uwsgi.ini’--.  Make sure to url encode the payload:
  
-![image](https://user-images.githubusercontent.com/93153300/206508218-36c9347f-3a08-494d-8d52-d3f39ced17e9.png)
+![image](https://user-images.githubusercontent.com/93153300/206518858-a4e01966-d21f-47e6-a3d8-d44720beb8b1.png)
 
-It worked, we find the file and contents to the file shown on the github page.  Using the sql injection, read the main.py file.  Change the id=1 to id=0 union select ‘main.py’.  Make sure to url encode the payload:
+It worked, we find the file and contents to the file shown on the github page.  Using the sql injection, read the main.py file.  Change the id=1 to id=0 union select ‘main.py’--.  Make sure to url encode the payload:
  
-![image](https://user-images.githubusercontent.com/93153300/206508289-05a17d08-6985-4892-a90e-2fc572e2f234.png)
+![image](https://user-images.githubusercontent.com/93153300/206519396-69f155c9-77b2-4bbc-9df3-4adc8f712252.png)
  
 Burp suite’s response contains the 2nd flag.
 ____________________________________________________________________________
