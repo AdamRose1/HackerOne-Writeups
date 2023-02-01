@@ -1,1 +1,1 @@
-These are my writeups for HackerOne CTF machines
+These are my writeups for HackerOne CTF labs
